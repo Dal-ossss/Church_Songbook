@@ -1,7 +1,7 @@
 // Grace Church Songbook - JavaScript
 
-// Sample Songs Data with Chords
-const songs = [
+// Sample Songs Data with Chords (10 sample songs + 190 blank pages = 200 total)
+let songs = [
     {
         id: 1,
         title: "Amazing Grace",
@@ -187,6 +187,39 @@ const songs = [
         ]
     }
 ];
+
+// Generate 190 blank pages (pages 11-200)
+for (let i = 11; i <= 200; i++) {
+    songs.push({
+        id: i,
+        title: `Blank Page ${i}`,
+        page: i,
+        author: "—",
+        preview: "This page is blank. Add your own song here!",
+        content: [
+            { chords: "", lyrics: "[This page is intentionally left blank]" },
+            { chords: "", lyrics: "" },
+            { chords: "", lyrics: "You can add your own songs by editing the script.js file." },
+            { chords: "", lyrics: "" },
+            { chords: "", lyrics: "Follow this format to add a new song:" },
+            { chords: "", lyrics: "" },
+            { chords: "", lyrics: '{' },
+            { chords: "", lyrics: '    id: ' + i + ',' },
+            { chords: "", lyrics: '    title: "Song Title",' },
+            { chords: "", lyrics: '    page: ' + i + ',' },
+            { chords: "", lyrics: '    author: "Author Name",' },
+            { chords: "", lyrics: '    preview: "Short preview text...",' },
+            { chords: "", lyrics: '    content: [' },
+            { chords: "", lyrics: '        { chords: "C   G   Am   F", lyrics: "Lyrics line 1" },' },
+            { chords: "", lyrics: '        { chords: "C   G   F   G", lyrics: "Lyrics line 2" }' },
+            { chords: "", lyrics: '    ]' },
+            { chords: "", lyrics: '}' },
+            { chords: "", lyrics: "" },
+            { chords: "", lyrics: "Or use the browser console:" },
+            { chords: "", lyrics: 'addSong({ title: "Your Song", page: ' + i + ', author: "Your Name", preview: "Preview", content: [...] })' }
+        ]
+    });
+}
 
 // DOM Elements
 const searchInput = document.getElementById('searchInput');
