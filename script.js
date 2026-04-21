@@ -235,7 +235,21 @@ const backBtn = document.getElementById('backBtn');
 document.addEventListener('DOMContentLoaded', () => {
     displayAllSongs(songs);
     setupEventListeners();
+    registerServiceWorker();
 });
+
+// Register Service Worker for offline access
+function registerServiceWorker() {
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js')
+            .then(registration => {
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            })
+            .catch(error => {
+                console.log('ServiceWorker registration failed: ', error);
+            });
+    }
+}
 
 // Setup event listeners
 function setupEventListeners() {
