@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grace Church Songbook</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Open+Sans:wght@400;600&family=Courier+Prime&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="cross-symbol">✝</div>
+            <h1>Grace Church Songbook</h1>
+            <p class="subtitle">"Sing to the Lord a new song" - Psalm 96:1</p>
+        </header>
+
+        <!-- Search Section -->
+        <section class="search-section">
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search by song title or page number..." aria-label="Search songs">
+                    <button id="searchBtn" class="search-btn">
+                        <span class="search-icon">🔍</span>
+                        Search
+                    </button>
+                </div>
+                <div class="filter-options">
+                    <label>
+                        <input type="radio" name="searchType" value="all" checked> All
+                    </label>
+                    <label>
+                        <input type="radio" name="searchType" value="title"> Title
+                    </label>
+                    <label>
+                        <input type="radio" name="searchType" value="page"> Page #
+                    </label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Song List View -->
+            <section id="songListView" class="song-list-view">
+                <h2 class="section-title">Song Index</h2>
+                <div class="song-grid" id="songGrid">
+                    <!-- Songs will be dynamically loaded here -->
+                </div>
+                <p class="no-results" id="noResults" style="display: none;">No songs found matching your search.</p>
+            </section>
+
+            <!-- Song Detail View -->
+            <section id="songDetailView" class="song-detail-view" style="display: none;">
+                <button id="backBtn" class="back-btn">← Back to Song List</button>
+                <article class="song-article" id="songArticle">
+                    <!-- Song details will be dynamically loaded here -->
+                </article>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="cross-symbol small">✝</div>
+            <p>Grace Church Songbook &copy; 2026</p>
+            <p class="footer-verse">"Let the message of Christ dwell among you richly as you teach and admonish one another with all wisdom through psalms, hymns, and songs from the Spirit." - Colossians 3:16</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

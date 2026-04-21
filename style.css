@@ -1,0 +1,448 @@
+/* Grace Church Songbook - CSS Styles */
+
+/* CSS Variables for Theme Colors */
+:root {
+    --primary-color: #2c3e50; /* Deep navy blue */
+    --secondary-color: #8e44ad; /* Royal purple */
+    --accent-color: #f1c40f; /* Gold/yellow */
+    --text-color: #333;
+    --light-text: #f8f9fa;
+    --border-color: #ddd;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --font-header: 'Cinzel', serif;
+    --font-body: 'Open Sans', sans-serif;
+    --font-chords: 'Courier Prime', monospace;
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: var(--text-color);
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styles */
+.header {
+    text-align: center;
+    padding: 40px 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+}
+
+.cross-symbol {
+    font-size: 4rem;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+    display: block;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.header h1 {
+    font-family: var(--font-header);
+    font-size: 3rem;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.subtitle {
+    font-style: italic;
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+}
+
+/* Search Section Styles */
+.search-section {
+    margin-bottom: 30px;
+}
+
+.search-container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+}
+
+.search-box {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+#searchInput {
+    flex-grow: 1;
+    padding: 15px 20px;
+    font-size: 1.1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 50px;
+    outline: none;
+    transition: all 0.3s ease;
+    font-family: var(--font-body);
+}
+
+#searchInput:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 15px rgba(142, 68, 173, 0.2);
+    transform: translateY(-2px);
+}
+
+.search-btn {
+    padding: 15px 30px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(44, 62, 80, 0.3);
+}
+
+.search-icon {
+    font-size: 1.2rem;
+}
+
+.filter-options {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.filter-options label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    color: var(--primary-color);
+    cursor: pointer;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: background 0.3s ease;
+}
+
+.filter-options label:hover {
+    background: rgba(142, 68, 173, 0.1);
+}
+
+/* Main Content Styles */
+.main-content {
+    display: grid;
+    gap: 30px;
+}
+
+/* Song List View */
+.song-list-view {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+}
+
+.section-title {
+    font-family: var(--font-header);
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    text-align: center;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: var(--accent-color);
+}
+
+.song-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.song-card {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.song-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px var(--shadow-color);
+    border-color: var(--secondary-color);
+}
+
+.song-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: var(--accent-color);
+}
+
+.song-title {
+    font-family: var(--font-header);
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.page-number {
+    background: var(--secondary-color);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.song-author {
+    color: var(--secondary-color);
+    font-style: italic;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.song-preview {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.no-results {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+}
+
+/* Song Detail View */
+.song-detail-view {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+}
+
+.back-btn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.song-article {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.song-header {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 20px;
+}
+
+.song-header h2 {
+    font-family: var(--font-header);
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.song-meta {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+.song-meta span {
+    background: rgba(142, 68, 173, 0.1);
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+
+/* Chord and Lyrics Styles */
+.song-content {
+    line-height: 2.5;
+    font-size: 1.1rem;
+}
+
+.chord-line {
+    font-family: var(--font-chords);
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+    min-height: 30px;
+}
+
+.lyric-line {
+    font-family: var(--font-body);
+    color: var(--text-color);
+    position: relative;
+    padding-left: 20px;
+}
+
+.lyric-line::before {
+    content: '▶';
+    position: absolute;
+    left: 0;
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .song-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .filter-options {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .search-box {
+        flex-direction: column;
+    }
+    
+    .song-title {
+        font-size: 1.1rem;
+    }
+    
+    .song-article {
+        padding: 0 20px;
+    }
+    
+    .song-header h2 {
+        font-size: 2rem;
+    }
+    
+    .song-meta {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* Animation for chords */
+@keyframes chordHighlight {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.chord-line span {
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.chord-line span:hover {
+    color: #f39c12;
+    animation: chordHighlight 0.3s ease;
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background: white;
+    }
+    
+    .container, .header, .search-section, .song-list-view {
+        box-shadow: none;
+        background: white;
+    }
+    
+    .back-btn, .search-box, .filter-options {
+        display: none;
+    }
+    
+    .song-card {
+        box-shadow: none;
+        border: 1px solid #000;
+        break-inside: avoid;
+    }
+    
+    .song-detail-view {
+        box-shadow: none;
+        background: white;
+    }
+}
