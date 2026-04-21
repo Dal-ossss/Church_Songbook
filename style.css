@@ -354,16 +354,7 @@ body {
 .lyric-line {
     font-family: var(--font-body);
     color: var(--text-color);
-    position: relative;
-    padding-left: 20px;
-}
-
-.lyric-line::before {
-    content: '▶';
-    position: absolute;
-    left: 0;
-    color: var(--secondary-color);
-    font-weight: bold;
+    margin-bottom: 10px;
 }
 
 /* Responsive Design */
